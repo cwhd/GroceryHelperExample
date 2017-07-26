@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/botchat.css" rel="stylesheet" />
+    <title>Grocery Ordering App</title>
+</head>
+<body>
+    <div id="bot" />
+    <script src="scripts/botchat.js"></script>
+    <script src="scripts/CognitiveServices.js"></script>
+    <script>
+
+        var speechOptions = {
+            speechRecognizer: new CognitiveServices.SpeechRecognizer({ subscriptionKey: 'a8a3a111c19c42a1ba84c8b03423fb76' }),
+
+            speechSynthesizer: new CognitiveServices.SpeechSynthesizer(
+                {
+                    subscriptionKey: 'a8a3a111c19c42a1ba84c8b03423fb76',
+                    gender: CognitiveServices.SynthesisGender.Female,
+                    voiceName: 'Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'
+                })
+        }
+
+      BotChat.App({
+          directLine: { secret: 'Sccyi-WchZ4.cwA.EfE.RHKJz5Erml9FY0OL2VPgPO_8ISzZRhw5Qmdyy_63zfE' },
+        user: { id: 'userid' },
+        bot: { id: 'ac570b70-a3ec-4933-979d-6a43d32e6f37' },
+        resize: 'detect',
+        speechOptions: speechOptions
+      }, document.getElementById("bot"));
+    </script>
+</body>
+</html>
